@@ -14,13 +14,7 @@ class SingleBook extends Component {
     return (
       <Col key={this.props.type.asin}>
         <Card onClick={this.change} className={this.state.selected ? 'border-danger' : 'border-secondary'}>
-          <Card.Img
-            variant="top"
-            // loading="lazy"
-            src={this.props.type.img}
-            className="w-100 d-block"
-            style={{ aspectRatio: 1 / 1 }}
-          />
+          <Card.Img variant="top" src={this.props.type.img} className="w-100 d-block" style={{ aspectRatio: 1 / 1 }} />
           <Card.Body>
             <Card.Title style={{ minHeight: '5rem', lineHeight: '1.2rem', fontSize: '1.2rem' }}>
               {this.props.type.title}
