@@ -2,13 +2,21 @@ import { Component } from 'react'
 import { Badge, Card, Col } from 'react-bootstrap'
 
 class SingleBook extends Component {
+  state = {
+    selected: false,
+  }
+  change = () => {
+    this.setState({
+      selected: !this.state.selected,
+    })
+  }
   render() {
     return (
       <Col key={this.props.type.asin}>
-        <Card>
+        <Card onClick={this.change} className={this.state.selected ? 'border-danger' : 'border-secondary'}>
           <Card.Img
-            loading="lazy"
             variant="top"
+            // loading="lazy"
             src={this.props.type.img}
             className="w-100 d-block"
             style={{ aspectRatio: 1 / 1 }}
@@ -19,7 +27,11 @@ class SingleBook extends Component {
             </Card.Title>
             <div className="d-flex justify-content-between">
               <Card.Text>{this.props.type.category}</Card.Text>
-              <Badge className="align-self-start p-2 bg-secondary">{this.props.type.price}</Badge>
+              <Badge
+                className={this.state.selected ? 'align-self-start p-2 bg-danger' : 'align-self-start p-2 bg-secondary'}
+              >
+                {this.props.type.price}
+              </Badge>
             </div>
           </Card.Body>
         </Card>
