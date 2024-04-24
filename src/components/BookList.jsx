@@ -47,7 +47,10 @@ class BookList extends Component {
           value={this.state.value}
           placeholder="Search book..."
         />
-        <Row className="justify-content-center mt-5 row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 row-cols-xxl-5 row-gap-3">
+        <Row
+          className="justify-content-center mt-5 row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 row-gap-3"
+          id="container"
+        >
           {this.state.genre !== 'all'
             ? filteredBooks
                 .filter((book) => book.category === this.state.genre)
